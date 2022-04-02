@@ -22,38 +22,34 @@ class NavigationTest {
     // Проверка доступности кнопки HOME
     @Test
     fun checkHomeButtonIsDisplayed() {
-        onView(withId(R.id.navigation_home))
-            .perform(click())
-            .check(matches(isDisplayed()))
+        HomePage().checkHomeButtonIsDisable()
     }
 
     // Проверка возврата на страницу HOME
     @Test
     fun clickHomeButtonIsDisplayed() {
-        onView(withId(R.id.navigation_dashboard))
-            .perform(click())
-        onView(withId(R.id.navigation_home))
-            .perform(click())
-        onView(withId(R.id.text_home))
-            .check(matches(withText("This is home Fragment")))
+        DashboardPage()
+            .clickDashboardButton()
+        HomePage()
+            .clickHomeButton()
+            .chekTextHomeIsDisplayed()
     }
 
     // Проверка перехода на страницу Dashboard
     @Test
     fun clickDashboardButtonIsDisplayed() {
-        onView(withId(R.id.navigation_dashboard))
-            .perform(click())
-        onView(withId(R.id.text_dashboard))
-            .check(matches(withText("This is dashboard Fragment")))
+        DashboardPage()
+            .clickDashboardButton()
+            .checkTextDashboardIsDisplay()
     }
 
     // Проверка перехода на страницу Notification
     @Test
     fun clickNotificationButtonIsDisplayed() {
-        onView(withId(R.id.navigation_notifications))
-            .perform(click())
-        onView(withId(R.id.text_notifications))
-            .check(matches(withText("This is notifications Fragment")))
+        NotificationPage()
+            .clickNotificationButton()
+            .checkTextNotificationIsDisplay()
+
     }
 
 }
